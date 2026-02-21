@@ -16,7 +16,7 @@ use std::fmt::{Debug, Display, Formatter};
 /// let empty_string_result = Refined::<NonEmptyStringRule>::new("".to_string());
 /// assert!(empty_string_result.is_err())
 /// ```
-#[derive(Debug, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub struct Refined<RULE>
 where
     RULE: Rule,
@@ -316,6 +316,33 @@ mod test {
     fn test_refined_display() -> Result<(), Error<String>> {
         let non_empty_string = Refined::<NonEmptyStringRule>::new("Hello".to_string())?;
         assert_eq!(format!("{}", non_empty_string), "Hello");
+        Ok(())
+    }
+
+    #[test]
+    fn test_refined_clone() -> Result<(), Error<String>> {
+        let non_empty_string = Refined::<NonEmptyStringRule>::new("Hello".to_string())?;
+        let cloned = non_empty_string.clone();
+        assert_eq!(non_empty_string, cloned);
+        Ok(())
+    }
+
+    #[test]
+    fn test_struct_with_refined_clone() -> anyhow::Result<()> {
+        #[derive(Debug, Eq, PartialEq, Clone)]
+        struct Human {
+            name: NonEmptyString,
+            friends: NonEmptyVec<String>,
+            age: u8,
+        }
+
+        let john = Human {
+            name: NonEmptyString::new("john".to_string())?,
+            friends: NonEmptyVec::new(vec!["tom".to_string(), "taro".to_string()])?,
+            age: 8,
+        };
+
+        assert_eq!(john, john.clone());
         Ok(())
     }
 
