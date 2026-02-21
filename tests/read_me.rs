@@ -126,6 +126,13 @@ impl Rule for ContainsWorldRule {
 }
 
 #[test]
+fn contains_comma_rule_example() {
+    let _ = ContainsCommaRule;
+    assert!(Refined::<ContainsCommaRule>::new("Hello, World!".to_string()).is_ok());
+    assert!(Refined::<ContainsCommaRule>::new("Hello World!".to_string()).is_err());
+}
+
+#[test]
 fn example_5() {
     type HelloAndWorldRule = And![ContainsHelloRule, ContainsWorldRule];
 
