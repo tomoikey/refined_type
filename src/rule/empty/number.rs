@@ -14,7 +14,9 @@ macro_rules! empty_definition {
     };
 }
 
-empty_definition!(u8, u16, u32, u64, u128, usize, i8, i16, i32, i64, i128, isize);
+empty_definition!(
+    u8, u16, u32, u64, u128, usize, i8, i16, i32, i64, i128, isize
+);
 
 impl EmptyDefinition for f32 {
     fn empty(&self) -> bool {

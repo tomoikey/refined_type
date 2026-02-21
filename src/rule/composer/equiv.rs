@@ -1,5 +1,5 @@
-use crate::rule::composer::imply::Imply;
 use crate::And;
+use crate::rule::composer::imply::Imply;
 
 /// This is a type that represents logical equivalence in logic.
 ///

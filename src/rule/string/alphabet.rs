@@ -1,4 +1,4 @@
-use crate::{declare_regex_rule, Refined};
+use crate::{Refined, declare_regex_rule};
 
 /// A type that holds a value satisfying the `AlphabetRule`
 ///

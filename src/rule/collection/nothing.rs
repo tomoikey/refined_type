@@ -1,6 +1,6 @@
+use crate::Refined;
 use crate::rule::composer::Not;
 use crate::rule::{ForAllRule, Rule};
-use crate::Refined;
 use std::collections::{HashMap, HashSet, VecDeque};
 
 /// A type that holds a value satisfying the `NothingRule`

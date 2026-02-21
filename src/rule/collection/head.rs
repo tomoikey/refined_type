@@ -1,5 +1,5 @@
-use crate::rule::{IndexRule, Rule};
 use crate::Refined;
+use crate::rule::{IndexRule, Rule};
 use std::collections::VecDeque;
 
 /// A type that holds a value satisfying the `HeadRule`

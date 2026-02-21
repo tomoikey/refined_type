@@ -1,5 +1,5 @@
-use crate::rule::{NonEmpty, NonEmptyRule};
 use crate::Refined;
+use crate::rule::{NonEmpty, NonEmptyRule};
 use std::collections::VecDeque;
 use std::fmt::Debug;
 use std::ops::Add;
@@ -29,7 +29,7 @@ impl<T: Debug> NonEmptyVecDeque<T> {
     }
 
     #[allow(clippy::should_implement_trait)]
-    pub fn iter(&self) -> NonEmpty<std::collections::vec_deque::Iter<T>> {
+    pub fn iter(&self) -> NonEmpty<std::collections::vec_deque::Iter<'_, T>> {
         Refined::new_unchecked(self.value().iter())
     }
 
@@ -71,8 +71,8 @@ impl<T: Debug> Add for NonEmptyVecDeque<T> {
 #[cfg(test)]
 mod test {
     use crate::result::Error;
-    use crate::rule::non_empty::non_empty_vec_deque::NonEmptyVecDeque;
     use crate::rule::NonEmptyVec;
+    use crate::rule::non_empty::non_empty_vec_deque::NonEmptyVecDeque;
     use std::collections::VecDeque;
 
     #[test]

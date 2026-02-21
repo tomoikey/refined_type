@@ -1,6 +1,6 @@
+use crate::Refined;
 use crate::result::Error;
 use crate::rule::{LengthDefinition, Rule};
-use crate::Refined;
 
 /// A type that holds a value satisfying the `LengthLessRule`
 pub type LengthLess<const THAN: usize, ITEM> = Refined<LengthLessRule<THAN, ITEM>>;

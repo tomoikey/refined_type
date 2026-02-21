@@ -19,9 +19,9 @@ pub struct Not<RULE> {
     _rule: PhantomData<RULE>,
 }
 
-impl<'a, T: Debug, RULE> Rule for Not<RULE>
+impl<T: Debug, RULE> Rule for Not<RULE>
 where
-    RULE: Rule<Item = T> + 'a,
+    RULE: Rule<Item = T>,
 {
     type Item = T;
 
@@ -50,6 +50,11 @@ mod test {
     fn test_not() {
         type NonNonEmptyString = Not<NonEmptyStringRule>;
         assert!(NonNonEmptyString::validate("".to_string()).is_ok());
-        assert_eq!(NonNonEmptyString::validate("Hello".to_string()).unwrap_err().to_string(), "\"Hello\" does not satisfy Not<Not<refined_type::rule::empty::EmptyRule<alloc::string::String>>>")
+        assert_eq!(
+            NonNonEmptyString::validate("Hello".to_string())
+                .unwrap_err()
+                .to_string(),
+            "\"Hello\" does not satisfy Not<Not<refined_type::rule::empty::EmptyRule<alloc::string::String>>>"
+        )
     }
 }

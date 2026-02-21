@@ -1,8 +1,8 @@
 use std::collections::{HashMap, HashSet, VecDeque};
 
+use crate::Refined;
 use crate::rule::composer::Not;
 use crate::rule::{NothingRule, Rule};
-use crate::Refined;
 
 /// A type that holds a value satisfying the `ExistsRule`
 pub type Exists<RULE, ITERABLE> = Refined<ExistsRule<RULE, ITERABLE>>;

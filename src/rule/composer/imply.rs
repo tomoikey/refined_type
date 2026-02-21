@@ -1,5 +1,5 @@
-use crate::rule::composer::Not;
 use crate::Or;
+use crate::rule::composer::Not;
 
 /// This is a type that represents logical implication in logic.
 /// By applying it to programming, you can make it function similarly to an “If-Then” statement.

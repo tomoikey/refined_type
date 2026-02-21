@@ -1,5 +1,5 @@
-use crate::rule::{Rule, SkipFirst, SkipRule};
 use crate::Refined;
+use crate::rule::{Rule, SkipFirst, SkipRule};
 use std::collections::VecDeque;
 
 /// A type that holds a value satisfying the `TailRule`

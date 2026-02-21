@@ -1,10 +1,10 @@
-use crate::rule::{NonEmpty, NonEmptyRule};
 use crate::Refined;
+use crate::rule::{NonEmpty, NonEmptyRule};
 use std::borrow::Borrow;
 use std::collections::hash_set::Difference;
 
-use std::collections::hash_map::RandomState;
 use std::collections::HashSet;
+use std::collections::hash_map::RandomState;
 use std::fmt::Debug;
 use std::hash::{BuildHasher, Hash};
 
@@ -34,7 +34,7 @@ impl<T: Debug, S> NonEmptyHashSet<T, S> {
     }
 
     #[allow(clippy::should_implement_trait)]
-    pub fn iter(&self) -> NonEmpty<std::collections::hash_set::Iter<T>> {
+    pub fn iter(&self) -> NonEmpty<std::collections::hash_set::Iter<'_, T>> {
         Refined::new_unchecked(self.value().iter())
     }
 

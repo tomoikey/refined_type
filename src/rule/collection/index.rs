@@ -1,5 +1,5 @@
-use crate::rule::Rule;
 use crate::Refined;
+use crate::rule::Rule;
 use std::collections::VecDeque;
 
 pub type Index<const INDEX: usize, RULE, ITERABLE> = Refined<IndexRule<INDEX, RULE, ITERABLE>>;

@@ -3,9 +3,9 @@ mod iterator;
 mod number;
 mod string;
 
+use crate::Refined;
 use crate::result::Error;
 use crate::rule::Rule;
-use crate::Refined;
 
 use std::fmt::Debug;
 use std::marker::PhantomData;

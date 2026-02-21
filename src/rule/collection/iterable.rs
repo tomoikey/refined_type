@@ -54,7 +54,7 @@ impl Iterable for String {
     }
 }
 
-impl<'a> Iterable for &'a str {
+impl Iterable for &str {
     type Item = char;
 
     fn into_iterator<'b>(self) -> Box<dyn DoubleEndedIterator<Item = Self::Item> + 'b>

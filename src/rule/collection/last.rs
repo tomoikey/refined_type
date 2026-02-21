@@ -1,7 +1,7 @@
 use std::collections::VecDeque;
 
-use crate::rule::{IndexRule, ReverseRule, Rule};
 use crate::Refined;
+use crate::rule::{IndexRule, ReverseRule, Rule};
 
 /// A type that holds a value satisfying the `LastRule`
 pub type Last<RULE, ITERABLE> = Refined<LastRule<RULE, ITERABLE>>;

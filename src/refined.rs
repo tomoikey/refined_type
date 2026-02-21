@@ -216,7 +216,9 @@ macro_rules! impl_try_from {
     };
 }
 
-impl_try_from![u8, u16, u32, u64, u128, usize, i8, i16, i32, i64, i128, isize, f32, f64];
+impl_try_from![
+    u8, u16, u32, u64, u128, usize, i8, i16, i32, i64, i128, isize, f32, f64
+];
 impl_try_from![String, char];
 
 impl<'a, RULE: Rule<Item = String>> TryFrom<&'a str> for Refined<RULE> {
@@ -278,8 +280,8 @@ mod test {
     use crate::refined::Refined;
     use crate::result::Error;
     use crate::rule::{
-        EqualI128, EqualI16, EqualI32, EqualI64, EqualI8, EqualIsize, EqualU128, EqualU16,
-        EqualU32, EqualU64, EqualU8, EqualUsize, NonEmptyHashMap, NonEmptyHashSet, NonEmptyString,
+        EqualI8, EqualI16, EqualI32, EqualI64, EqualI128, EqualIsize, EqualU8, EqualU16, EqualU32,
+        EqualU64, EqualU128, EqualUsize, NonEmptyHashMap, NonEmptyHashSet, NonEmptyString,
         NonEmptyStringRule, NonEmptyVec, NonEmptyVecDeque,
     };
 

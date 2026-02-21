@@ -1,5 +1,5 @@
-use crate::rule::composer::Not;
 use crate::And;
+use crate::rule::composer::Not;
 
 /// This is a type that represents logical NAND in logic.
 pub type Nand<RULE1, RULE2> = Not<And![RULE1, RULE2]>;

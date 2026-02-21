@@ -1,6 +1,6 @@
+use crate::Refined;
 use crate::result::Error;
 use crate::rule::{LengthDefinition, Rule};
-use crate::Refined;
 
 /// A type that holds a value satisfying the `LengthGreaterRule`
 pub type LengthGreater<const THAN: usize, ITEM> = Refined<LengthGreaterRule<THAN, ITEM>>;

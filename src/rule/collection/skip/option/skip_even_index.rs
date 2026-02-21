@@ -9,6 +9,6 @@ impl<ITEM> SkipOption for SkipEvenIndex<ITEM> {
     type Item = ITEM;
     type Accumulator = ();
     fn should_skip(i: usize, _: Option<&mut Self::Accumulator>, _: &Self::Item) -> bool {
-        i % 2 == 0
+        i.is_multiple_of(2)
     }
 }

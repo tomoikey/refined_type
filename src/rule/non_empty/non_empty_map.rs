@@ -1,9 +1,9 @@
-use crate::rule::{NonEmpty, NonEmptyRule};
 use crate::Refined;
+use crate::rule::{NonEmpty, NonEmptyRule};
 use std::borrow::Borrow;
+use std::collections::HashMap;
 use std::collections::hash_map::RandomState;
 use std::collections::hash_map::{IntoKeys, IntoValues, Keys, Values};
-use std::collections::HashMap;
 use std::fmt::Debug;
 use std::hash::{BuildHasher, Hash};
 
@@ -37,7 +37,7 @@ impl<K: Debug, V: Debug, S> NonEmptyHashMap<K, V, S> {
     }
 
     #[allow(clippy::should_implement_trait)]
-    pub fn iter(&self) -> NonEmpty<std::collections::hash_map::Iter<K, V>> {
+    pub fn iter(&self) -> NonEmpty<std::collections::hash_map::Iter<'_, K, V>> {
         Refined::new_unchecked(self.value().iter())
     }
 
@@ -57,7 +57,7 @@ impl<K: Debug, V: Debug, S> NonEmptyHashMap<K, V, S> {
         false
     }
 
-    pub fn keys(&self) -> Keys<K, V> {
+    pub fn keys(&self) -> Keys<'_, K, V> {
         self.value().keys()
     }
 
@@ -65,7 +65,7 @@ impl<K: Debug, V: Debug, S> NonEmptyHashMap<K, V, S> {
         self.into_value().into_keys()
     }
 
-    pub fn values(&self) -> Values<K, V> {
+    pub fn values(&self) -> Values<'_, K, V> {
         self.value().values()
     }
 

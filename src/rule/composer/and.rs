@@ -41,10 +41,10 @@ pub struct And<RULE1, RULE2> {
     _rule2: PhantomData<RULE2>,
 }
 
-impl<'a, T, RULE1, RULE2> And<RULE1, RULE2>
+impl<T, RULE1, RULE2> And<RULE1, RULE2>
 where
-    RULE1: Rule<Item = T> + 'a,
-    RULE2: Rule<Item = T> + 'a,
+    RULE1: Rule<Item = T>,
+    RULE2: Rule<Item = T>,
 {
     pub fn new() -> Self {
         Self::default()
@@ -60,10 +60,10 @@ impl<RULE1, RULE2> Default for And<RULE1, RULE2> {
     }
 }
 
-impl<'a, T: Debug, RULE1, RULE2> Rule for And<RULE1, RULE2>
+impl<T: Debug, RULE1, RULE2> Rule for And<RULE1, RULE2>
 where
-    RULE1: Rule<Item = T> + 'a,
-    RULE2: Rule<Item = T> + 'a,
+    RULE1: Rule<Item = T>,
+    RULE2: Rule<Item = T>,
 {
     type Item = T;
 
@@ -99,7 +99,10 @@ mod test {
     #[test]
     fn test_rule_binder_err() {
         type Target = And![EvenRuleU8, LessRuleU8<10>];
-        assert_eq!(Target::validate(11).unwrap_err().to_string(), "[the value must be even, but received 11 && the value must be less than 10, but received 11]");
+        assert_eq!(
+            Target::validate(11).unwrap_err().to_string(),
+            "[the value must be even, but received 11 && the value must be less than 10, but received 11]"
+        );
     }
 
     #[test]

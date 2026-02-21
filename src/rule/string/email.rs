@@ -1,4 +1,4 @@
-use crate::{declare_regex_rule, Refined};
+use crate::{Refined, declare_regex_rule};
 
 /// A type that holds a value satisfying the `EmailRule`
 ///
@@ -29,8 +29,8 @@ pub type EmailStrRule = EmailRule<&'static str>;
 
 #[cfg(test)]
 mod test {
-    use crate::rule::string::email::EmailRule;
     use crate::rule::Rule;
+    use crate::rule::string::email::EmailRule;
 
     #[test]
     fn test_valid_email() {

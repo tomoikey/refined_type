@@ -1,6 +1,6 @@
+use crate::Refined;
 use crate::result::Error;
 use crate::rule::Rule;
-use crate::Refined;
 use std::str::FromStr;
 
 /// A type that holds a value satisfying the `Ipv6AddrRule`

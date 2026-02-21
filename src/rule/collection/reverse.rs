@@ -1,6 +1,6 @@
+use crate::Refined;
 use crate::result::Error;
 use crate::rule::{Iterable, Rule};
-use crate::Refined;
 use std::marker::PhantomData;
 
 /// A type that holds a value satisfying the `ReverseRule`

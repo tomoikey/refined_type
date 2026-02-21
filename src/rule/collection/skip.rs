@@ -5,8 +5,8 @@ use std::marker::PhantomData;
 
 pub use option::*;
 
-use crate::rule::{Iterable, Rule};
 use crate::Refined;
+use crate::rule::{Iterable, Rule};
 
 /// A type that holds a value satisfying the `SkipRule`
 pub type Skip<RULE, ITERABLE, OPTION> = Refined<SkipRule<RULE, ITERABLE, OPTION>>;

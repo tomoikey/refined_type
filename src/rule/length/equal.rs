@@ -1,6 +1,6 @@
+use crate::Refined;
 use crate::result::Error;
 use crate::rule::{LengthDefinition, Rule};
-use crate::Refined;
 
 /// A type that holds a value satisfying the `LengthEqualRule`
 pub type LengthEqual<const LENGTH: usize, ITEM> = Refined<LengthEqualRule<LENGTH, ITEM>>;

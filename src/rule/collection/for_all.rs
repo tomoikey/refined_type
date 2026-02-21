@@ -1,7 +1,7 @@
 use std::collections::{HashMap, HashSet, VecDeque};
 
-use crate::rule::{Iterable, NoSkip, Rule, SkipRule};
 use crate::Refined;
+use crate::rule::{Iterable, NoSkip, Rule, SkipRule};
 
 /// A type that holds a value satisfying the `ForAllRule`
 pub type ForAll<RULE, ITERABLE> = Refined<ForAllRule<RULE, ITERABLE>>;
